@@ -1,4 +1,4 @@
-import Styles from "./header.module.css"
+
 import { Box ,Flex,Text} from "@chakra-ui/react"
 export const Header = () => {
 
@@ -28,19 +28,9 @@ export const Header = () => {
 
     ]
     return (
-        // <div className={Styles.container}>
-
-        //     {data.map((elem,index) => (
-        //         <div className={Styles.data} key={index}>
-
-        //             <Box>{elem.title}</Box>
-        //             <Box>{elem.value}</Box>
-        //         </div>
-
-        //     ))}
-        // </div>
-        <Box bg="#184b8d" height={"200px"}>
-        <Flex    border="2px solid red" w={["100%", "90%"]} m="auto" justifyContent={"space-between"} 
+        
+        <Box bg="#184b8d" height={"280px"} position="relative" z-zIndex={"-1"} opacity={"0.9"}>
+        <Flex   w={["100%", "90%"]} m="auto" justifyContent={"space-between"} 
         flexWrap  ="wrap" height={"100px"} pt="15px">
           {data.map((elem,index)=>(
             <Box key={index}> 

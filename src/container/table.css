@@ -1,8 +1,57 @@
 th, td {
-    border: 2px solid blue;
+    border: 2px solid grey;
   }
 
   table{
     border: 2px solid red;
+    margin: auto;
+    margin-top: -80px;
+    position: relative;
+   
+  
   }
+  
+
+  thead{
+    background-color: grey;
+    color:white;
+
+  }
+
+
+  .tablecontroll table{
+    width: 800px;
+
+  }
+
+  @media only screen and (max-width: 599px) {
+
+    .tablecontroll table{
+      width: 100%;
+    }
+    
+    .table{
+      margin-top: -10px;
+    }
+  }
+
+  @media only screen and (min-width: 600px) {
+
+    .tablecontroll table{
+      width: 800px;
+  
+    }
+
+}
+
+@media only screen and (min-width: 768px) {
+
+  .tablecontroll table{
+    width: 800px;
+
+  }
+
+
+
+}
   

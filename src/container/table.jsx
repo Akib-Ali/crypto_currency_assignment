@@ -9,10 +9,12 @@ import axios from "axios"
 export const TableFetch=()=>{
 
 const [data,setData]= useState([])
+const [loading,setLoading] = useState(false)
 
 
    useEffect(()=>{
    fetchdata()
+   setLoading(true)
     },[])
 
    const fetchdata=()=>{
@@ -21,9 +23,11 @@ const [data,setData]= useState([])
             url:"https://api.coincap.io/v2/assets"
         }).then((res)=>{
             setData(res.data.data)
+            setLoading(false)
 
         }).catch((err)=>{
             console.log(err)
+            setLoading(false)
 
         })
     }
@@ -32,7 +36,9 @@ const [data,setData]= useState([])
 
 
     return(
-        <div>
+        <div className="tablecontroll">
+
+            {loading && <div style={{textAlign : "center" , fontSize:"25px"}}>  ...loading </div>}
                    
 
               <table border="2">

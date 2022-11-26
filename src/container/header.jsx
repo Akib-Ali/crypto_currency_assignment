@@ -39,9 +39,9 @@ export const Header = () => {
 
         //     ))}
         // </div>
-        <Box bg="#184b8d">
+        <Box bg="#184b8d" height={"200px"}>
         <Flex    border="2px solid red" w={["100%", "90%"]} m="auto" justifyContent={"space-between"} 
-        flexWrap  ="wrap" height={"150px"} pt="15px">
+        flexWrap  ="wrap" height={"100px"} pt="15px">
           {data.map((elem,index)=>(
             <Box key={index}> 
                 <Text color={"white"}>{elem.title}</Text>

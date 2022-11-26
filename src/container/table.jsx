@@ -1,7 +1,12 @@
 import { useEffect, useState } from "react"
+import { TableUi } from "./tableui"
+import { Flex } from "@chakra-ui/react"
+import "./table.css"
+import axios from "axios"
 
 
-export const TableUi=()=>{
+
+export const TableFetch=()=>{
 
 const [data,setData]= useState([])
 
@@ -10,22 +15,51 @@ const [data,setData]= useState([])
    fetchdata()
     },[])
 
+   const fetchdata=()=>{
+        axios({
+            method:"get",
+            url:"https://api.coincap.io/v2/assets"
+        }).then((res)=>{
+            setData(res.data.data)
 
-    
+        }).catch((err)=>{
+            console.log(err)
 
-    const fetchdata = async()=>{
-
-        const responce = await fetch("https://api.coincap.io/v2/assets")
-        setData(await responce.json())
+        })
     }
-
 
     console.log(data)
 
 
     return(
         <div>
-            <h1>Datanjn</h1>
-        </div>
+                   
+
+              <table border="2">
+             <thead>
+                <tr style={{fontSize:"16px"}}>
+                  <th>Rank</th>
+                  <th>Name</th>
+                  <th>Price</th>
+                  
+                   <th>SUPPLY</th> 
+                  <th>Change 24 Hour</th>
+                </tr>
+            </thead>
+            
+
+           {data.map((elem,index)=>{
+
+                let profit = elem.changePercent24Hr >= 0;
+
+
+                return(
+                    <TableUi elem={elem} key={index} profit={profit}/>
+                )
+
+             })}
+             </table>
+         
+         </div>
     )
 }

@@ -1,7 +1,7 @@
 
 import './App.css'
 import { Header } from './container/header'
-import { TableUi } from './container/table'
+import { TableFetch } from './container/table'
 
 function App() {
 
@@ -9,7 +9,7 @@ function App() {
   return (
     <div className="App">
       <Header/>
-      <TableUi/>
+      <TableFetch/>
     </div>
   )
 }
